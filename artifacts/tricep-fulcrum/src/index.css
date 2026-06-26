@@ -10,9 +10,17 @@ html {
   overscroll-behavior: none;
 }
 
-* {
+/* Apply GPU promotion only to Framer Motion animated elements, not every element */
+[data-framer-motion],
+[style*="transform"],
+[style*="will-change"] {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+/* Smooth momentum scrolling on iOS/touch */
+body {
+  -webkit-overflow-scrolling: touch;
 }
 @plugin "@tailwindcss/typography";
 
