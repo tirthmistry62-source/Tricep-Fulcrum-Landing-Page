@@ -91,9 +91,10 @@ export function Navbar() {
           </span>
         </button>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          <div className="flex items-center gap-6 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+        {/* Right side */}
+        <div className="flex items-center gap-3">
+          {/* Desktop nav links */}
+          <nav className="hidden md:flex items-center gap-6 px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mr-2">
             {navLinks.map((link) => (
               <button
                 key={link.name}
@@ -103,26 +104,28 @@ export function Navbar() {
                 {link.name}
               </button>
             ))}
-          </div>
+          </nav>
 
+          {/* Play Store button — always visible */}
           <a
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 text-white border border-primary/30 hover:border-primary/60 shadow-[0_0_15px_rgba(255,107,43,0.15)] hover:shadow-[0_0_25px_rgba(255,107,43,0.25)] transition-all font-medium px-5 py-2 text-sm"
+            className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 text-white border border-primary/30 hover:border-primary/60 shadow-[0_0_15px_rgba(255,107,43,0.15)] hover:shadow-[0_0_25px_rgba(255,107,43,0.25)] transition-all font-medium px-4 py-2 text-sm"
           >
             <GooglePlayIcon className="w-4 h-4 shrink-0" />
-            Get on Play Store
+            <span className="hidden sm:inline">Get on Play Store</span>
+            <span className="sm:hidden">Download</span>
           </a>
-        </nav>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden p-2 text-foreground outline-none"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </button>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden p-2 text-foreground outline-none"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
