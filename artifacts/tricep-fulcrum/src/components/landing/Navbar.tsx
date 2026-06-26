@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share";
 
 function GooglePlayIcon({ className }: { className?: string }) {
   return (
@@ -32,56 +34,40 @@ function GooglePlayIcon({ className }: { className?: string }) {
   );
 }
 
-import { Button } from "@/components/ui/button";
-
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share";
-
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location, setLocation] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
-    
-    // If not on home page, go home first
     if (location !== "/") {
       setLocation("/");
-      // Need a slight delay to allow rendering before scrolling
       setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 100);
       return;
     }
-    
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const navLinks = [
-    { name: "Features", id: "features" },
+    { name: "Features",   id: "features"   },
     { name: "Statistics", id: "statistics" },
-    { name: "Journey", id: "journey" },
+    { name: "Journey",    id: "journey"    },
   ];
 
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? "bg-background/60 backdrop-blur-xl border-b border-white/5 py-4" 
+        scrolled
+          ? "bg-background/60 backdrop-blur-xl border-b border-white/5 py-4"
           : "bg-transparent py-6"
       }`}
       initial={{ y: -100 }}
@@ -89,8 +75,9 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
+
         {/* Logo */}
-        <button 
+        <button
           onClick={() => scrollToSection("hero")}
           className="flex items-center gap-3 group outline-none"
         >
@@ -117,7 +104,7 @@ export function Navbar() {
               </button>
             ))}
           </div>
-          
+
           <a
             href={PLAY_STORE_URL}
             target="_blank"
@@ -129,8 +116,8 @@ export function Navbar() {
           </a>
         </nav>
 
-        {/* Mobile Menu Toggle */}
-        <button 
+        {/* Mobile toggle */}
+        <button
           className="md:hidden p-2 text-foreground outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -138,7 +125,7 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div

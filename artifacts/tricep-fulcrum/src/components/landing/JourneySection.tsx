@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SectionReveal } from "./SectionReveal";
 
 const phases = [
   {
@@ -27,45 +28,38 @@ export function JourneySection() {
   return (
     <section id="journey" className="py-32 relative z-10">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center max-w-3xl mx-auto mb-20"
-        >
+
+        <SectionReveal className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
             The Journey
           </h2>
           <p className="text-xl text-muted-foreground">
             How we built the ultimate push-up tracker.
           </p>
-        </motion.div>
+        </SectionReveal>
 
         <div className="max-w-4xl mx-auto relative">
-          {/* Vertical Line */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent -translate-x-1/2" />
 
           <div className="space-y-12">
             {phases.map((phase, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, y: 48, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                style={{ willChange: "transform, opacity, filter" }}
                 className={`flex flex-col md:flex-row gap-8 relative items-start ${
                   i % 2 === 0 ? "md:flex-row-reverse text-left md:text-right" : "text-left"
                 }`}
               >
-                {/* Center Node */}
                 <div className="absolute left-8 md:left-1/2 top-0 -translate-x-1/2 w-12 h-12 rounded-full bg-background border-4 border-white/5 flex items-center justify-center text-primary font-bold font-display z-10 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                   {phase.num}
                 </div>
 
-                {/* Content Card */}
                 <div className={`w-full md:w-1/2 pl-24 md:px-12 ${i % 2 === 0 ? "md:pr-12 md:pl-0" : ""}`}>
-                  <div className="p-8 rounded-3xl bg-card/40 backdrop-blur-md border border-white/5 hover:bg-card/60 transition-colors">
+                  <div className="p-8 rounded-3xl bg-card/40 backdrop-blur-md border border-white/5 hover:bg-card/60 hover:border-white/10 transition-all duration-500">
                     <h3 className="text-2xl font-bold mb-4 font-display text-white">
                       {phase.title}
                     </h3>
@@ -78,6 +72,7 @@ export function JourneySection() {
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
