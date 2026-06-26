@@ -60,11 +60,13 @@ export function Navbar() {
         {/* Logo */}
         <button 
           onClick={() => scrollToSection("hero")}
-          className="flex items-center gap-2 group outline-none"
+          className="flex items-center gap-3 group outline-none"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-orange-400 flex items-center justify-center text-white font-display font-bold text-xl shadow-[0_0_20px_rgba(255,107,43,0.3)] group-hover:shadow-[0_0_30px_rgba(255,107,43,0.5)] transition-shadow">
-            TF
-          </div>
+          <img
+            src="/tf-logo.png"
+            alt="Tricep Fulcrum"
+            className="w-10 h-10 rounded-xl object-cover shadow-[0_0_20px_rgba(200,150,30,0.35)] group-hover:shadow-[0_0_32px_rgba(200,150,30,0.55)] transition-shadow"
+          />
           <span className="font-display font-semibold text-lg tracking-tight hidden sm:block">
             Tricep Fulcrum
           </span>
