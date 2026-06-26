@@ -28,21 +28,11 @@ function GooglePlayIcon({ className }: { className?: string }) {
   );
 }
 
-const FIRE_SPARKS = [
-  { left: "15%", delay: 0,    dur: 1.6, size: 7  },
-  { left: "30%", delay: 0.35, dur: 1.9, size: 5  },
-  { left: "50%", delay: 0.7,  dur: 1.5, size: 9  },
-  { left: "65%", delay: 0.2,  dur: 2.0, size: 5  },
-  { left: "80%", delay: 0.9,  dur: 1.7, size: 6  },
-  { left: "42%", delay: 1.1,  dur: 1.8, size: 4  },
-];
-
 export function CTASection() {
   return (
     <section id="download" className="py-32 relative z-10 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
 
-      {/* Large ambient glow */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -53,87 +43,6 @@ export function CTASection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <SectionReveal className="max-w-3xl mx-auto">
-
-          {/* Hanging gloves area — sits above card */}
-          <div className="relative flex justify-center" style={{ height: 260, marginBottom: -60 }}>
-
-            {/* The string / hook line from top */}
-            <div
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-white/30 via-white/10 to-transparent pointer-events-none"
-              style={{ height: 40 }}
-            />
-
-            {/* Gloves image — swings on pendulum from top-center */}
-            <motion.div
-              className="absolute select-none"
-              style={{
-                top: 0,
-                width: 280,
-                transformOrigin: "top center",
-                willChange: "transform",
-              }}
-              animate={{ rotate: [-8, 8, -8] }}
-              transition={{
-                duration: 3.6,
-                repeat: Infinity,
-                ease: [0.45, 0, 0.55, 1],
-              }}
-            >
-              <img
-                src="/boxing-gloves.png"
-                alt="Boxing gloves"
-                className="w-full h-auto object-contain select-none pointer-events-none"
-                draggable={false}
-                style={{
-                  filter: "drop-shadow(0 0 28px rgba(255, 110, 20, 0.55)) drop-shadow(0 0 8px rgba(255, 60, 0, 0.4))",
-                }}
-              />
-
-              {/* Fire glow pool at base of gloves */}
-              <motion.div
-                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-40 h-6 rounded-full pointer-events-none"
-                style={{
-                  background: "radial-gradient(ellipse, rgba(255,100,10,0.6) 0%, transparent 70%)",
-                  filter: "blur(10px)",
-                }}
-                animate={{ scaleX: [1, 1.5, 1], opacity: [0.5, 0.9, 0.5] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              />
-
-              {/* Fire sparks rising from gloves */}
-              <div className="absolute inset-x-4 bottom-8 pointer-events-none overflow-visible">
-                {FIRE_SPARKS.map((s, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute rounded-full"
-                    style={{
-                      left: s.left,
-                      bottom: 0,
-                      width: s.size,
-                      height: s.size,
-                      background: "radial-gradient(circle, rgba(255,160,30,1) 0%, rgba(255,60,0,0.4) 60%, transparent 100%)",
-                      filter: `blur(${s.size / 3}px)`,
-                      willChange: "transform, opacity",
-                    }}
-                    animate={{
-                      y: [0, -70],
-                      opacity: [0.9, 0],
-                      scale: [1, 0.2],
-                    }}
-                    transition={{
-                      duration: s.dur,
-                      delay: s.delay,
-                      repeat: Infinity,
-                      repeatDelay: 0.2,
-                      ease: "easeOut",
-                    }}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Glass card */}
           <div className="relative p-10 md:p-14 rounded-3xl bg-card/40 backdrop-blur-xl border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.4)] overflow-hidden text-center">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none rounded-3xl" />
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -162,7 +71,6 @@ export function CTASection() {
               </a>
             </div>
           </div>
-
         </SectionReveal>
       </div>
     </section>
