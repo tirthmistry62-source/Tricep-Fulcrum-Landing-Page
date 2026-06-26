@@ -77,9 +77,14 @@ export function HeroSection() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-12">
-                <Button size="lg" className="w-full sm:w-auto rounded-full text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(255,107,43,0.3)] hover:shadow-[0_0_30px_rgba(255,107,43,0.5)] transition-all">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(255,107,43,0.3)] hover:shadow-[0_0_30px_rgba(255,107,43,0.5)] transition-all font-medium"
+                >
                   Download Free
-                </Button>
+                </a>
                 <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full text-lg h-14 px-8 bg-white/5 border-white/10 hover:bg-white/10 text-white backdrop-blur-sm">
                   Learn More
                 </Button>
