@@ -41,28 +41,36 @@ export function CTASection() {
       />
 
       <div className="container mx-auto px-6 relative z-10">
-        <SectionReveal className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tighter">
-            Start your streak today.
-          </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Join thousands of athletes building their push-up habit with Tricep Fulcrum. Free on Google Play.
-          </p>
+        <SectionReveal className="max-w-3xl mx-auto">
+          <div className="relative p-10 md:p-14 rounded-3xl bg-card/40 backdrop-blur-xl border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.4)] overflow-hidden text-center">
+            {/* Inner glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none rounded-3xl" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 px-8 py-5 rounded-3xl bg-card/60 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all duration-300 shadow-[0_0_30px_rgba(255,107,43,0.1)] hover:shadow-[0_0_50px_rgba(255,107,43,0.2)] group"
-          >
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <GooglePlayIcon className="w-6 h-6" />
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 tracking-tighter">
+                Start your streak today.
+              </h2>
+              <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
+                Join thousands of athletes building their push-up habit with Tricep Fulcrum. Free on Google Play.
+              </p>
+
+              <a
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 hover:border-primary/50 transition-all duration-300 shadow-[0_0_20px_rgba(255,107,43,0.1)] hover:shadow-[0_0_40px_rgba(255,107,43,0.25)] group"
+              >
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <GooglePlayIcon className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">GET IT ON</div>
+                  <div className="text-xl font-bold font-display leading-none text-white">Google Play</div>
+                </div>
+              </a>
             </div>
-            <div className="text-left">
-              <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">GET IT ON</div>
-              <div className="text-xl font-bold font-display leading-none text-white">Google Play</div>
-            </div>
-          </a>
+          </div>
         </SectionReveal>
       </div>
     </section>
