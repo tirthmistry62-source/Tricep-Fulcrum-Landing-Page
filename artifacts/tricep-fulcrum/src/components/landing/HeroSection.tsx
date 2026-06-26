@@ -5,61 +5,31 @@ import { Button } from "@/components/ui/button";
 
 function PhoneMockup() {
   return (
-    <motion.div 
-      className="relative w-[320px] h-[650px] rounded-[3rem] border-[8px] border-[#1a1a1a] bg-[#0a0a0c] shadow-[0_0_50px_rgba(0,0,0,0.8),inset_0_0_20px_rgba(255,255,255,0.05)] overflow-hidden shrink-0 mx-auto"
-      animate={{ y: [0, -15, 0] }}
+    <motion.div
+      className="relative w-[300px] h-[620px] rounded-[3rem] border-[8px] border-[#1e1e1e] bg-[#08080f] shadow-[0_0_80px_rgba(0,0,0,0.9),0_0_40px_rgba(120,80,220,0.15),inset_0_0_20px_rgba(255,255,255,0.04)] overflow-hidden shrink-0 mx-auto"
+      animate={{ y: [0, -14, 0] }}
       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
     >
-      {/* Notch */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-[#1a1a1a] rounded-b-3xl z-20" />
-      
-      {/* Screen Content */}
-      <div className="absolute inset-0 p-6 flex flex-col pt-12">
-        <div className="flex justify-between items-center mb-8">
-          <span className="text-white/50 text-sm font-medium">Today</span>
-          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-          </div>
-        </div>
+      {/* Side buttons */}
+      <div className="absolute -right-[10px] top-24 w-[6px] h-14 bg-[#2a2a2a] rounded-r-sm" />
+      <div className="absolute -left-[10px] top-20 w-[6px] h-9 bg-[#2a2a2a] rounded-l-sm" />
+      <div className="absolute -left-[10px] top-32 w-[6px] h-9 bg-[#2a2a2a] rounded-l-sm" />
 
-        {/* Big Counter */}
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <div className="relative w-48 h-48 rounded-full border-4 border-white/5 flex items-center justify-center mb-8">
-            <svg className="absolute inset-0 w-full h-full -rotate-90">
-              <circle 
-                cx="96" cy="96" r="90" 
-                fill="none" 
-                stroke="url(#gradient)" 
-                strokeWidth="8" 
-                strokeDasharray="565" 
-                strokeDashoffset="150"
-                strokeLinecap="round"
-              />
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FF6B2B" />
-                  <stop offset="100%" stopColor="#8A2BE2" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <div className="text-center">
-              <div className="text-6xl font-display font-bold tracking-tighter text-white">42</div>
-              <div className="text-sm text-white/50 font-medium">/ 50 Reps</div>
-            </div>
-          </div>
-          
-          <div className="flex gap-4 w-full">
-            <div className="flex-1 bg-white/5 rounded-2xl p-4 text-center">
-              <div className="text-2xl font-bold text-white mb-1">12</div>
-              <div className="text-xs text-white/50">Day Streak</div>
-            </div>
-            <div className="flex-1 bg-white/5 rounded-2xl p-4 text-center">
-              <div className="text-2xl font-bold text-white mb-1">840</div>
-              <div className="text-xs text-white/50">Total</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Notch */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#1e1e1e] rounded-b-2xl z-20" />
+
+      {/* Screenshot fills the entire screen */}
+      <img
+        src="/app-dashboard.jpeg"
+        alt="Tricep Fulcrum App Dashboard"
+        className="absolute inset-0 w-full h-full object-cover object-top"
+        draggable={false}
+      />
+
+      {/* Subtle top glare reflection */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/[0.07] to-transparent pointer-events-none z-10" />
+      {/* Bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 to-transparent pointer-events-none z-10" />
     </motion.div>
   );
 }
