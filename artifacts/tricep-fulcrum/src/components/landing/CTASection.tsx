@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { SectionReveal } from "./SectionReveal";
 
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share";
+
 function GooglePlayIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +28,89 @@ function GooglePlayIcon({ className }: { className?: string }) {
   );
 }
 
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share";
+function BoxingGlove({ side }: { side: "left" | "right" }) {
+  const isLeft = side === "left";
+  const gradId = isLeft ? "glv-l" : "glv-r";
+  const bandId = isLeft ? "band-l" : "band-r";
+
+  return (
+    <svg
+      viewBox="0 0 80 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ transform: isLeft ? "scaleX(-1)" : "none" }}
+    >
+      {/* Main glove body */}
+      <path
+        d="M12 42 Q8 28 14 18 Q20 8 32 7 L56 7 Q66 7 71 18 Q77 30 72 44 L67 68 Q64 76 55 78 L24 78 Q15 76 12 68 Z"
+        fill={`url(#${gradId})`}
+      />
+      {/* Knuckle ridge */}
+      <path d="M22 16 Q37 10 52 16" stroke="rgba(255,255,255,0.25)" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M24 24 Q37 18 52 24" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Thumb */}
+      <path d="M10 35 Q4 32 5 24 Q6 16 14 18" fill={`url(#${gradId})`} stroke="none"/>
+      {/* Wrist band */}
+      <rect x="16" y="73" width="48" height="24" rx="9" fill={`url(#${bandId})`}/>
+      {/* Band stripe */}
+      <rect x="16" y="82" width="48" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
+      {/* Shine on glove */}
+      <ellipse cx="38" cy="22" rx="14" ry="7" fill="rgba(255,255,255,0.10)" style={{ transform: "rotate(-15deg)", transformOrigin: "38px 22px" }}/>
+      <defs>
+        <linearGradient id={gradId} x1="10" y1="7" x2="72" y2="97" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FFA040"/>
+          <stop offset="55%" stopColor="#E05500"/>
+          <stop offset="100%" stopColor="#991F00"/>
+        </linearGradient>
+        <linearGradient id={bandId} x1="16" y1="73" x2="64" y2="97" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#CC3A00"/>
+          <stop offset="100%" stopColor="#7A1800"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+const GLOVE_SPARKS = [
+  { bottom: "5%",  left: "20%", size: 5, delay: 0    },
+  { bottom: "15%", left: "50%", size: 7, delay: 0.3  },
+  { bottom: "0%",  left: "70%", size: 4, delay: 0.6  },
+  { bottom: "20%", left: "35%", size: 5, delay: 0.9  },
+];
+
+function GloveFire() {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {GLOVE_SPARKS.map((s, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            bottom: s.bottom,
+            left: s.left,
+            width: s.size,
+            height: s.size,
+            background: "radial-gradient(circle, rgba(255,150,20,1), rgba(255,60,0,0.4))",
+            filter: `blur(${s.size / 3}px)`,
+            willChange: "transform, opacity",
+          }}
+          animate={{
+            y: [0, -60],
+            opacity: [0.9, 0],
+            scale: [1, 0.2],
+          }}
+          transition={{
+            duration: 1.4,
+            delay: s.delay,
+            repeat: Infinity,
+            repeatDelay: 0.2,
+            ease: "easeOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 export function CTASection() {
   return (
@@ -42,8 +126,47 @@ export function CTASection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <SectionReveal className="max-w-3xl mx-auto">
+
+          {/* Boxing gloves row */}
+          <div className="flex items-end justify-center gap-6 mb-[-28px] relative z-10 select-none">
+            {/* Left glove */}
+            <motion.div
+              className="relative w-24 h-28"
+              style={{ transformOrigin: "bottom center", willChange: "transform" }}
+              animate={{ rotate: [-28, 12, -28] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
+            >
+              <GloveFire />
+              {/* Fire glow under glove */}
+              <motion.div
+                className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-4 rounded-full"
+                style={{ background: "radial-gradient(ellipse, rgba(255,100,10,0.55) 0%, transparent 70%)", filter: "blur(6px)" }}
+                animate={{ scaleX: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <BoxingGlove side="left" />
+            </motion.div>
+
+            {/* Right glove */}
+            <motion.div
+              className="relative w-24 h-28"
+              style={{ transformOrigin: "bottom center", willChange: "transform" }}
+              animate={{ rotate: [28, -12, 28] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
+            >
+              <GloveFire />
+              <motion.div
+                className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-4 rounded-full"
+                style={{ background: "radial-gradient(ellipse, rgba(255,100,10,0.55) 0%, transparent 70%)", filter: "blur(6px)" }}
+                animate={{ scaleX: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+              />
+              <BoxingGlove side="right" />
+            </motion.div>
+          </div>
+
+          {/* Card */}
           <div className="relative p-10 md:p-14 rounded-3xl bg-card/40 backdrop-blur-xl border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.4)] overflow-hidden text-center">
-            {/* Inner glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none rounded-3xl" />
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
@@ -71,6 +194,7 @@ export function CTASection() {
               </a>
             </div>
           </div>
+
         </SectionReveal>
       </div>
     </section>
