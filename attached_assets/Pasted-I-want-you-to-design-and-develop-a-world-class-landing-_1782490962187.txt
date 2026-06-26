@@ -1,0 +1,29 @@
+I want you to design and develop a world-class landing page for my fitness application called Tricep Fulcrum. Tricep Fulcrum is a premium fitness application focused entirely on helping users build a consistent push-up habit. The app allows users to track every workout, count lifetime push-ups, monitor daily, weekly and monthly progress, maintain workout streaks, unlock achievements and badges, complete fitness goals, and visualize their performance through beautiful statistics and analytics. The app is designed to motivate users to stay consistent rather than simply counting repetitions. The overall brand identity is clean, modern, premium, and motivational.
+
+The landing page should feel like the official website of a premium technology product. Draw inspiration from the websites of Apple, Nothing, Stripe, Linear, Arc Browser, Raycast, and Vercel. Avoid generic templates completely. Every section should feel intentionally designed with excellent spacing, typography, animations, and attention to detail. The visitor should immediately feel that this is a high-quality product.
+
+The website should be designed specifically for dark mode. Use deep blacks, subtle gradients, elegant glassmorphism, premium shadows, realistic depth, soft lighting, and modern typography. The interface should feel luxurious, comfortable, and visually calming. Avoid bright backgrounds, excessive colors, or flashy animations. The website should feel refined and sophisticated.
+
+Use glassmorphism throughout the experience. Navigation bars, feature cards, statistics, screenshot panels, and call-to-action sections should all have beautifully blurred glass surfaces with subtle translucent borders, realistic reflections, and soft shadows. Create a living background using floating blurred circles, ambient lighting, slow-moving particles, radial gradients, and layered depth. The background should move naturally while remaining subtle and never distracting.
+
+The scrolling experience should be exceptionally smooth. Every section should fade into view with elegant upward motion and blur reduction as the user scrolls. Add premium micro-interactions throughout the website including smooth hover effects, button animations, card elevation, subtle parallax effects, cursor interactions, and a sticky glass navigation bar that becomes beautifully blurred while scrolling. Every interaction should feel smooth and premium.
+
+The hero section should immediately capture attention. Display a large floating phone mockup showcasing the Tricep Fulcrum application with realistic reflections, soft shadows, subtle floating animation, and a premium glowing aura behind it. Alongside the phone, include a bold headline that communicates the purpose of the app, a short description explaining how Tricep Fulcrum helps users build consistency through workout tracking, streaks, achievements, goals, and detailed statistics, followed by a prominent Google Play download button and a secondary button to explore the app.
+
+Create a premium Features section highlighting workout tracking, lifetime push-up statistics, workout history, daily and weekly goals, streak tracking, achievements, beautiful analytics, performance insights, customizable themes, and an intuitive user experience. Present each feature inside elegant animated glass cards with modern icons and smooth hover animations.
+
+ Add an animated Statistics section with elegant counting animations to showcase the capabilities of the application. Include a Development Journey section explaining the progression from the initial idea, through development and testing, to the successful Google Play Store launch. I will share you the development journey later. Finish the page with a premium download section encouraging visitors to install Tricep Fulcrum from the Google Play Store.
+
+Create a beautiful glass footer containing the Tricep Fulcrum branding, the Stryke Labs branding, Privacy Policy, Terms & Conditions, Contact information, and a "Designed & Developed by Tirth Mistry" credit.
+
+The website must be fully responsive and provide an exceptional experience on mobile phones, tablets, laptops, and desktop displays. Optimize everything for smooth 60 FPS animations, accessibility, fast loading, SEO, and excellent user experience.
+
+After this prompt, I will provide two logo files:
+
+The official TricepFulcrum logo.
+
+The official Stryke Labs logo.
+
+Use both logos throughout the website in a tasteful and professional way. Match the overall visual language and color palette to these logos while preserving the premium dark aesthetic.
+
+The final result should be visually stunning, production-ready, memorable, and feel like the website of a polished premium fitness technology company rather than a typical fitness application. Every animation, transition, layout, and visual element should demonstrate craftsmanship and exceptional attention to detail.
