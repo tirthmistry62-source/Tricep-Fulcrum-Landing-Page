@@ -74,7 +74,7 @@ export function JourneySection() {
                   Tirth M
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  Founder of <span className="text-white font-medium">Stryke Labs</span> and the developer behind Tricep Fulcrum. A teenager driven by curiosity across tech, AI, and software development — Tirth builds tools that solve real problems, not imaginary ones.
+                  Founder of <span className="text-white font-medium">Stryke Labs</span> and the developer behind Tricep Fulcrum. A teenager driven by curiosity across tech, AI, and software development — Tirth likes to build tools that solve real problems, not imaginary ones.
                 </p>
 
                 {/* Badges */}
