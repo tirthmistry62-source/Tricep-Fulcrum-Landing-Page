@@ -46,10 +46,10 @@ export function JourneySection() {
 
         {/* Developer Card */}
         <motion.div
-          initial={{ opacity: 0, y: 48, filter: "blur(12px)" }}
+          initial={{ opacity: 0, y: 28, filter: "blur(4px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           style={{ willChange: "transform, opacity, filter" }}
           className="max-w-3xl mx-auto mb-24"
         >
@@ -109,10 +109,10 @@ export function JourneySection() {
             {phases.map((phase, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 48, filter: "blur(10px)" }}
+                initial={{ opacity: 0, y: 28, filter: "blur(4px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 1.0, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
                 style={{ willChange: "transform, opacity, filter" }}
                 className={`flex flex-col md:flex-row gap-8 relative items-start ${
                   i % 2 === 0 ? "md:flex-row-reverse text-left md:text-right" : "text-left"

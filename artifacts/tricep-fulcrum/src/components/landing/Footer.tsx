@@ -19,9 +19,28 @@ export function Footer() {
 
           {/* Nav links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms &amp; Conditions</a>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Terms &amp; Conditions
+            </a>
+            <a
+              href="mailto:strykelabsofficial@gmail.com"
+              className="hover:text-white transition-colors"
+            >
+              Contact
+            </a>
           </div>
 
           {/* Stryke Labs branding */}
@@ -33,7 +52,7 @@ export function Footer() {
             />
             <div className="flex flex-col">
               <span className="font-display font-semibold text-base leading-tight">Stryke Labs</span>
-              <span className="text-muted-foreground text-xs leading-tight">© 2025</span>
+              <span className="text-muted-foreground text-xs leading-tight">© 2026</span>
             </div>
           </div>
 

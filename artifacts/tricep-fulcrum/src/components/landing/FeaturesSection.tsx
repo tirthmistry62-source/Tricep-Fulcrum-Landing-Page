@@ -16,12 +16,12 @@ const features = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 28, filter: "blur(4px)" },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.7, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 1.0, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -43,7 +43,7 @@ export function FeaturesSection() {
           </p>
         </SectionReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {features.map((feature, i) => (
             <motion.div
               key={i}
