@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Star } from "lucide-react";
 
@@ -72,8 +72,11 @@ export function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // Spring-smooth the raw scroll value so opacity/y follow with a silky lag
+  const smooth = useSpring(scrollYProgress, { stiffness: 60, damping: 20, restDelta: 0.0005 });
+
+  const y       = useTransform(smooth, [0, 1],   [0, 160]);
+  const opacity = useTransform(smooth, [0, 0.45], [1, 0]);
 
   return (
     <section id="hero" ref={containerRef} className="relative min-h-[100dvh] flex items-center pt-24 pb-12 overflow-hidden z-10">
