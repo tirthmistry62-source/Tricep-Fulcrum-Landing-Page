@@ -85,28 +85,52 @@ export function HeroSection() {
             style={{ y, opacity }}
             className="flex-1 max-w-2xl text-center lg:text-left"
           >
+            {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium mb-8"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium mb-8">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-                </span>
-                Now available on Android
-              </div>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+              </span>
+              Now available on Android
+            </motion.div>
 
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/50">
+            {/* Headline — opacity on outer wrapper, y+blur on inner, avoids bg-clip-text compositing issue */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.1, ease: "easeOut", delay: 0.1 }}
+              className="mb-8"
+            >
+              <motion.h1
+                initial={{ y: 32, filter: "blur(6px)" }}
+                animate={{ y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                className="text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/50"
+              >
                 Build the habit.<br />
                 Own the streak.
-              </h1>
+              </motion.h1>
+            </motion.div>
 
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Tricep Fulcrum is the beautifully crafted, obsessively polished push-up tracker that actually keeps you going.
-              </p>
+            <motion.p
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
+              className="text-xl md:text-2xl text-muted-foreground font-medium mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+            >
+              Tricep Fulcrum is the beautifully crafted, obsessively polished push-up tracker that actually keeps you going.
+            </motion.p>
 
+            <motion.div
+              initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.34 }}
+            >
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-12">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share"
