@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Activity, Flame, Medal, Target, BarChart2, Zap, History, Palette, Layers, Star } from "lucide-react";
 import { SectionReveal, RevealItem } from "./SectionReveal";
 
@@ -15,7 +15,7 @@ const features = [
   { icon: Star,      title: "Intuitive UX",           description: "Zero learning curve. Open the app and just go." },
 ];
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 28, filter: "blur(4px)" },
   visible: (i: number) => ({
     opacity: 1,
