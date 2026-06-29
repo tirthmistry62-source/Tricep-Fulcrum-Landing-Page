@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm --filter @workspace/tricep-fulcrum run build",
+  "installCommand": "pnpm install",
+  "outputDirectory": "artifacts/tricep-fulcrum/dist/public",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
