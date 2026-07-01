@@ -20,7 +20,11 @@ const cardVariants: Variants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 1.0, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] },
+    transition: { 
+      duration: 0.7, 
+      delay: i < 2 ? 0 : (i - 2) * 0.05, 
+      ease: [0.16, 1, 0.3, 1] 
+    },
   }),
 };
 
@@ -50,7 +54,7 @@ export function FeaturesSection() {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0, margin: "0px 0px 100px 0px" }}
+              viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
               className="group p-4 lg:p-6 rounded-3xl bg-card/40 backdrop-blur-md border border-white/5 hover:bg-card/60 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,107,43,0.08)] relative overflow-hidden"
               style={{ willChange: "transform, opacity, filter" }}
             >
