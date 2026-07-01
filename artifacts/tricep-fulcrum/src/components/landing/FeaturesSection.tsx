@@ -16,21 +16,20 @@ const features = [
 ];
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 28, filter: "blur(4px)" },
+  hidden: { opacity: 0, y: 28 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 1.0, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-32 relative z-10">
+    <section id="features" className="py-12 lg:py-32 relative z-10">
       <div className="container mx-auto px-6">
 
-        <SectionReveal className="text-center max-w-3xl mx-auto mb-20">
+        <SectionReveal className="text-center max-w-3xl mx-auto mb-10 lg:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium mb-6">
             <Zap className="w-4 h-4" />
             Built for consistency
@@ -43,7 +42,7 @@ export function FeaturesSection() {
           </p>
         </SectionReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
           {features.map((feature, i) => (
             <motion.div
               key={i}
@@ -51,8 +50,8 @@ export function FeaturesSection() {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="group p-6 rounded-3xl bg-card/40 backdrop-blur-md border border-white/5 hover:bg-card/60 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,107,43,0.08)] relative overflow-hidden"
+              viewport={{ once: true, amount: 0.01 }}
+              className="group p-4 lg:p-6 rounded-3xl bg-card/40 backdrop-blur-md border border-white/5 hover:bg-card/60 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(255,107,43,0.08)] relative overflow-hidden"
               style={{ willChange: "transform, opacity, filter" }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />

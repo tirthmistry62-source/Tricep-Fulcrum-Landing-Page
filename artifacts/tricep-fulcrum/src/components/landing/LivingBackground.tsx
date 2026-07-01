@@ -26,42 +26,42 @@ export function LivingBackground() {
         }}
       />
       
-      {/* Drifting Orbs */}
+      {/* Drifting Orbs - Simplified for Mobile */}
       <motion.div 
-        className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full mix-blend-screen filter blur-[100px] opacity-20"
+        className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full mix-blend-screen filter blur-[60px] md:blur-[100px] opacity-20"
         style={{
           background: 'radial-gradient(circle, rgba(138,43,226,1) 0%, rgba(0,0,0,0) 70%)',
         }}
         animate={{
           x: mousePos.x * -50,
           y: mousePos.y * -50,
-          scale: [1, 1.1, 1],
+          scale: [1, 1.05, 1],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />
       
       <motion.div 
-        className="absolute top-[20%] right-[-10%] w-[60vw] h-[60vw] rounded-full mix-blend-screen filter blur-[120px] opacity-[0.15]"
+        className="absolute top-[20%] right-[-10%] w-[60vw] h-[60vw] rounded-full mix-blend-screen filter blur-[80px] md:blur-[120px] opacity-[0.15]"
         style={{
           background: 'radial-gradient(circle, rgba(255,107,43,1) 0%, rgba(0,0,0,0) 70%)',
         }}
         animate={{
           x: mousePos.x * 30,
           y: mousePos.y * 30,
-          scale: [1, 1.2, 0.9, 1],
+          scale: [1, 1.1, 0.95, 1],
         }}
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
       />
       
       <motion.div 
-        className="absolute bottom-[-20%] left-[20%] w-[70vw] h-[70vw] rounded-full mix-blend-screen filter blur-[130px] opacity-[0.12]"
+        className="absolute bottom-[-20%] left-[20%] w-[70vw] h-[70vw] rounded-full mix-blend-screen filter blur-[90px] md:blur-[130px] opacity-[0.12]"
         style={{
           background: 'radial-gradient(circle, rgba(65,105,225,1) 0%, rgba(0,0,0,0) 70%)',
         }}
         animate={{
           x: mousePos.x * 40,
           y: mousePos.y * -20,
-          scale: [0.9, 1.1, 1],
+          scale: [0.95, 1.05, 1],
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
       />

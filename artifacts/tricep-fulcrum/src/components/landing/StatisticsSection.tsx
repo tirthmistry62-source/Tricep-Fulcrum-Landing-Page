@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 function AnimatedCounter({ value, duration = 2 }: { value: number, duration?: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "0px" });
   const [hasTriggered, setHasTriggered] = useState(false);
   
   const spring = useSpring(0, {
@@ -36,21 +36,21 @@ export function StatisticsSection() {
   ];
 
   return (
-    <section id="statistics" className="py-32 relative z-10 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+    <section id="statistics" className="py-12 lg:py-32 relative z-10 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
       <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }} />
       
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 md:gap-12">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.01 }}
               transition={{ duration: 0.6, delay: i * 0.1, type: "spring", stiffness: 100, damping: 20 }}
-              className="flex flex-col items-center text-center space-y-4"
+              className="flex flex-col items-center text-center space-y-2 lg:space-y-4"
             >
-              <div className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary tracking-tighter drop-shadow-[0_0_15px_rgba(255,107,43,0.3)]">
+              <div className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-primary tracking-tighter drop-shadow-[0_0_15px_rgba(255,107,43,0.3)]">
                 {stat.isFloat ? (
                   <span>{stat.value}</span>
                 ) : (

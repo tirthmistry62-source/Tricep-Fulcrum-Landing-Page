@@ -32,10 +32,10 @@ const phases = [
 
 export function JourneySection() {
   return (
-    <section id="journey" className="py-32 relative z-10">
+    <section id="journey" className="py-20 lg:py-32 relative z-10">
       <div className="container mx-auto px-6">
 
-        <SectionReveal className="text-center max-w-3xl mx-auto mb-20">
+        <SectionReveal className="text-center max-w-3xl mx-auto mb-10 lg:mb-20">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
             The Journey
           </h2>
@@ -46,14 +46,14 @@ export function JourneySection() {
 
         {/* Developer Card */}
         <motion.div
-          initial={{ opacity: 0, y: 28, filter: "blur(4px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true, amount: 0.15 }}
+          initial={{ opacity: 0, y: 28, filter: "none" }}
+          whileInView={{ opacity: 1, y: 0, filter: "none" }}
+          viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           style={{ willChange: "transform, opacity, filter" }}
-          className="max-w-3xl mx-auto mb-24"
+          className="max-w-3xl mx-auto mb-12 lg:mb-24"
         >
-          <div className="relative p-8 md:p-10 rounded-3xl bg-card/40 backdrop-blur-md border border-white/8 overflow-hidden">
+          <div className="relative p-6 md:p-10 rounded-3xl bg-card/40 backdrop-blur-md border border-white/8 overflow-hidden">
             {/* Subtle gradient accent */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-accent/8 pointer-events-none rounded-3xl" />
 
@@ -105,13 +105,13 @@ export function JourneySection() {
         <div className="max-w-4xl mx-auto relative">
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent -translate-x-1/2" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 lg:space-y-12">
             {phases.map((phase, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 28, filter: "blur(4px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, amount: 0.15 }}
+                initial={{ opacity: 0, y: 28, filter: "none" }}
+                whileInView={{ opacity: 1, y: 0, filter: "none" }}
+                viewport={{ once: true, amount: 0.01 }}
                 transition={{ duration: 1.0, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
                 style={{ willChange: "transform, opacity, filter" }}
                 className={`flex flex-col md:flex-row gap-8 relative items-start ${
@@ -125,7 +125,7 @@ export function JourneySection() {
 
                 {/* Card */}
                 <div className={`w-full md:w-1/2 pl-24 md:px-12 ${i % 2 === 0 ? "md:pr-12 md:pl-0" : ""}`}>
-                  <div className="p-8 rounded-3xl bg-card/40 backdrop-blur-md border border-white/5 hover:bg-card/60 hover:border-white/10 transition-all duration-500">
+                  <div className="p-6 md:p-8 rounded-3xl bg-card/40 backdrop-blur-md border border-white/5 hover:bg-card/60 hover:border-white/10 transition-all duration-500">
                     <h3 className="text-2xl font-bold mb-4 font-display text-white">
                       {phase.title}
                     </h3>

@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import { Star } from "lucide-react";
 
 const SPARKS = [
@@ -42,23 +42,52 @@ function FireSpark({ left, delay, dur, size, drift }: typeof SPARKS[0]) {
   );
 }
 
+const APP_SCREENS = [
+  "/app-dashboard.jpeg",
+  "/app-history.jpeg",
+  "/app-levels.jpeg",
+  "/app-badges.jpeg",
+  "/app-settings.jpeg",
+  "/app-workout.jpeg", // Still waiting for this one!
+];
+
 function PhoneMockup() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % APP_SCREENS.length);
+    }, 4000); // 4 seconds total interval
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <motion.div
-      className="relative w-[300px] h-[620px] rounded-[3rem] border-[8px] border-[#1e1e1e] bg-[#08080f] shadow-[0_0_80px_rgba(0,0,0,0.9),0_0_40px_rgba(120,80,220,0.15),inset_0_0_20px_rgba(255,255,255,0.04)] overflow-hidden shrink-0 mx-auto"
+      className="relative w-[260px] h-[540px] md:w-[300px] md:h-[620px] rounded-[3rem] border-[8px] border-[#1e1e1e] bg-[#08080f] shadow-[0_0_80px_rgba(0,0,0,0.9),0_0_40px_rgba(120,80,220,0.15),inset_0_0_20px_rgba(255,255,255,0.04)] overflow-hidden shrink-0 mx-auto"
       animate={{ y: [0, -14, 0] }}
       transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
     >
       <div className="absolute -right-[10px] top-24 w-[6px] h-14 bg-[#2a2a2a] rounded-r-sm" />
       <div className="absolute -left-[10px] top-20 w-[6px] h-9 bg-[#2a2a2a] rounded-l-sm" />
       <div className="absolute -left-[10px] top-32 w-[6px] h-9 bg-[#2a2a2a] rounded-l-sm" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#1e1e1e] rounded-b-2xl z-20" />
-      <img
-        src="/app-dashboard.jpeg"
-        alt="Tricep Fulcrum App Dashboard"
-        className="absolute inset-0 w-full h-full object-cover object-top"
-        draggable={false}
-      />
+      {/* Notch removed for a cleaner look */}
+      
+      <div className="absolute inset-0 w-full h-full">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentIndex}
+            src={APP_SCREENS[currentIndex]}
+            alt={`Tricep Fulcrum Screen ${currentIndex + 1}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }} // 1.2 seconds for a smoother but faster fade
+            className="absolute inset-0 w-full h-full object-cover object-top"
+            draggable={false}
+          />
+        </AnimatePresence>
+      </div>
+
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/[0.07] to-transparent pointer-events-none z-10" />
       <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 to-transparent pointer-events-none z-10" />
     </motion.div>
@@ -77,7 +106,7 @@ export function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
   return (
-    <section id="hero" ref={containerRef} className="relative min-h-[100dvh] flex items-center pt-24 pb-12 overflow-hidden z-10">
+    <section id="hero" ref={containerRef} className="relative min-h-[100dvh] flex items-center pt-12 lg:pt-24 pb-8 lg:pb-12 overflow-hidden z-10">
       <div className="container mx-auto px-6">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-8">
 
@@ -92,7 +121,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium mb-4 lg:mb-8">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
@@ -101,16 +130,16 @@ export function HeroSection() {
               </div>
 
               {/* Plain white — no background-clip:text, which breaks GPU compositing during animation */}
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] tracking-tighter mb-8 text-white">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] tracking-tighter mb-4 lg:mb-8 text-white">
                 Build the habit.<br />
                 Own the streak.
               </h1>
 
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-6 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Tricep Fulcrum is the beautifully crafted, obsessively polished push-up tracker that actually keeps you going.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-12">
+              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-6 lg:mb-12">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.tricep.fulcrum&pcampaignid=web_share"
                   target="_blank"

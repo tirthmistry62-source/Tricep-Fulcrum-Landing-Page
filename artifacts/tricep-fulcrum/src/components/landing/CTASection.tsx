@@ -30,13 +30,13 @@ function GooglePlayIcon({ className }: { className?: string }) {
 
 export function CTASection() {
   return (
-    <section id="download" className="py-32 relative z-10 overflow-hidden">
+    <section id="download" className="py-20 lg:py-32 relative z-10 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.01 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[150px] pointer-events-none"
       />
