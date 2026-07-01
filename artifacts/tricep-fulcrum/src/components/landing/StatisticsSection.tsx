@@ -46,7 +46,7 @@ export function StatisticsSection() {
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0, margin: "0px 0px 100px 0px" }}
+              viewport={{ once: true, amount: 0, margin: "0px 0px 300px 0px" }}
               transition={{ duration: 0.6, delay: i * 0.1, type: "spring", stiffness: 100, damping: 20 }}
               className="flex flex-col items-center text-center space-y-2 lg:space-y-4"
             >

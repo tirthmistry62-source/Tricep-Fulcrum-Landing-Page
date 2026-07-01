@@ -36,7 +36,7 @@ export function CTASection() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0, margin: "0px 0px 100px 0px" }}
+        viewport={{ once: true, amount: 0, margin: "0px 0px 300px 0px" }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[150px] pointer-events-none"
       />

@@ -41,7 +41,7 @@ export function SectionReveal({ children, className = "", delay = 0, stagger = f
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0, margin: "0px 0px 100px 0px" }}
+        viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
       >
         {children}
       </motion.div>
@@ -53,8 +53,8 @@ export function SectionReveal({ children, className = "", delay = 0, stagger = f
       className={className}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0, margin: "0px 0px 100px 0px" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay }}
+      viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
+      transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: delay + 0.2 }}
     >
       {children}
     </motion.div>
